@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/_TEMPLATE2.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:define name="menu"><h:link outcome="/paiement/paiement.xhtml" value="Paiement"/></ui:define>
+    
+    <ui:define name="titre">Paiement</ui:define>
+    
+    <ui:define name="wrapper">
+        <h:form>
+        <h:panelGrid columns="2" style="margin: 0 auto">
+            <h:outputLabel value="Nom : "/>
+            <h:inputText value="#{paiementManagedBean.nom}" required="true">
+                <f:validateLength minimum="2"/>
+            </h:inputText>
+            <h:outputLabel value="N° Carte : "/>
+            <h:inputText value="#{paiementManagedBean.numCarte}" required="true">
+                <f:validateRegex pattern="^[0-9]{6}$"/>
+            </h:inputText>
+            <h:outputLabel value="Crypto : "/>
+            <h:inputText value="#{paiementManagedBean.crypto}" required="true">
+                <f:validateRegex pattern="^[0-9]{3}$"/>
+            </h:inputText>
+            <h:outputLabel value="Date de Validité : "/>
+            <h:inputText value="#{paiementManagedBean.dateValidite}" required="true">
+                <f:validateLength minimum="4" maximum="4"/>
+            </h:inputText>
+            <h:outputLabel value="Montant : "/>
+            <h:inputText value="#{paiementManagedBean.somme}"/>
+            <h:commandButton value="Payer" action="#{paiementManagedBean.paiement()}"/>
+        </h:panelGrid>
+        </h:form>
+    </ui:define>
+    
+</ui:composition>
+
