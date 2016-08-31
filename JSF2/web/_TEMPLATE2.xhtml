@@ -11,12 +11,14 @@
     </h:head>
     <h:body>
         <menu>
-            <ui:include src="_MENU.xhtml"/>
+            <ui:insert name="menu">
+                <ui:include  src="_MENU_1.xhtml"/>
+            </ui:insert>
         </menu>
         <h1>
             <ui:insert name="titre">CHANTE SLOUBI</ui:insert>
         </h1>
-        <div>
+        <div class="wrapper">
             <ui:insert name="wrapper">WRAPPER</ui:insert>
         </div>
         <footer>

@@ -15,11 +15,15 @@
                     <f:selectItems value="#{reservationManagedBean.tabPays}"/>
                 </h:selectOneMenu>
                 <h:outputLabel value="Pays d'Arrivée : "/>
-                <h:selectOneRadio value="#{reservationManagedBean.paysArrivee}">
+                <h:selectManyCheckbox value="#{reservationManagedBean.paysArrivee}">
                     <f:selectItems value="#{reservationManagedBean.tabPays}"/>
-                </h:selectOneRadio>
+                </h:selectManyCheckbox>
                 <h:outputLabel value=" Première Classe : "/>
-                <h:selectBooleanCheckbox value="#{reservationManagedBean.premiereClasse}"></h:selectBooleanCheckbox>
+                <h:selectOneRadio value="#{reservationManagedBean.premiereClasse}">
+                    <f:selectItem itemLabel="1ère" itemValue="true"/>
+                    <f:selectItem itemLabel="2de" itemValue="false"/>
+                </h:selectOneRadio>
+                <h:commandButton value="Réserves vite mon grand" action="#{reservationManagedBean.reservation()}"/>
             </h:panelGrid>
         </h:form>
     </ui:define>

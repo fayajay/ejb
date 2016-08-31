@@ -1,11 +1,11 @@
 body{text-align: center; background-color: palevioletred; color: blue;}
 
-menu{background-color: darkorange;}
+.wrapper{font-size: 3em;}
 
 h1{color: palegreen; font-size: 5em;}
 
-menu{margin: 30px;}
+menu{margin: 30px; font-size: 3em;background-color: darkorange;}
 
 footer{margin-top: 300px;}
 
-div{font-size: 2em;}
+

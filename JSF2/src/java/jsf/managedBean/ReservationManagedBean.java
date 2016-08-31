@@ -17,11 +17,17 @@ public class ReservationManagedBean {
     public  String[] tabPays = {"FRANCE", "USA", "ITALIE", "GROLAND", "JAMAIQUE", "AUSTRALIE"};
     
     private String paysDepart;
-    private String paysArrivee;
+    private String[] paysArrivee;
     private String nom;
     private String prenom;
     private Short age;
     private Boolean premiereClasse;
+    
+    
+    
+    public String reservation(){
+        return "login_ok.xhtml";
+    }
 
     public String[] getTabPays() {
         return tabPays;
@@ -30,8 +36,6 @@ public class ReservationManagedBean {
     public void setTabPays(String[] tabPays) {
         this.tabPays = tabPays;
     }
-    
-    
 
     public String getPaysDepart() {
         return paysDepart;
@@ -41,11 +45,11 @@ public class ReservationManagedBean {
         this.paysDepart = paysDepart;
     }
 
-    public String getPaysArrivee() {
+    public String[] getPaysArrivee() {
         return paysArrivee;
     }
 
-    public void setPaysArrivee(String paysArrivee) {
+    public void setPaysArrivee(String[] paysArrivee) {
         this.paysArrivee = paysArrivee;
     }
 
