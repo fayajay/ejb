@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>JSF2</title>
+        <ui:insert name="css">
+            <h:outputStylesheet library="css" name="styles.css" />
+        </ui:insert>
+    </h:head>
+    <h:body>
+        <menu>
+            <ui:include src="_MENU.xhtml"/>
+        </menu>
+        <h1>
+            <ui:insert name="titre">CHANTE SLOUBI</ui:insert>
+        </h1>
+        <div>
+            <ui:insert name="wrapper">WRAPPER</ui:insert>
+        </div>
+        <footer>
+            <ui:insert name="footer">FOOTER</ui:insert>
+        </footer>
+    </h:body>
+</html>
+
