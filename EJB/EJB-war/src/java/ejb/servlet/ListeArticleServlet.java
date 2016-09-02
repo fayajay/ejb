@@ -5,6 +5,8 @@
  */
 package ejb.servlet;
 
+import ejb.bean.ArticleFacadeLocal;
+import ejb.bean.UtilisateurFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ejb.entity.Article;
 import ejb.service.ArticleService;
+import javax.ejb.EJB;
 
 /**
  *
@@ -22,14 +25,21 @@ import ejb.service.ArticleService;
  */
 @WebServlet(name = "ListeArticleServlet", urlPatterns = {"/listeArticle"})
 public class ListeArticleServlet extends HttpServlet {
+    
+    @EJB
+    private ArticleFacadeLocal afl;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        ArticleService aserv = new ArticleService();
-        List<Article> articleEnStock = aserv.listerArticle();
+//        ArticleService aserv = new ArticleService();
+       //List<Article> articleEnStock = aserv.listerArticle();
+    
         
-        req.setAttribute("article", articleEnStock);
+        //req.setAttribute("article", articleEnStock);
+        
+        
+        afl.findAll();
         
         req.getRequestDispatcher("listeArticle.jsp").forward(req, resp);
         

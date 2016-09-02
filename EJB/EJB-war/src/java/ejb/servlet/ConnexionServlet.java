@@ -5,8 +5,8 @@
  */
 package ejb.servlet;
 
+import ejb.bean.UtilisateurFacadeLocal;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ejb.entity.Utilisateur;
 import ejb.service.UtilisateurService;
+import ejb.service.UtilisateurServiceEjbLocal;
+import javax.ejb.EJB;
 
 /**
  *
@@ -22,6 +24,10 @@ import ejb.service.UtilisateurService;
 @WebServlet(name = "ConnexionServlet", urlPatterns = {"/connexion"})
 public class ConnexionServlet extends HttpServlet {
 
+    @EJB
+    private UtilisateurServiceEjbLocal usel;
+    
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
@@ -34,13 +40,15 @@ public class ConnexionServlet extends HttpServlet {
         String login = req.getParameter("login");
         String mdp = req.getParameter("mdp");
         
-        Utilisateur u = new UtilisateurService().connexion(login, mdp);
+        //Utilisateur u = new UtilisateurService().connexion(login, mdp);
+        
+        usel.connexion(login, mdp);
         
         // je suis logué correctement
-        req.getSession().setAttribute("utilConnecte", u);
+        //req.getSession().setAttribute("utilConnecte", usel);
         
         
-        resp.sendRedirect("store");
+        resp.sendRedirect("ajouterArticle");
  
     }
 

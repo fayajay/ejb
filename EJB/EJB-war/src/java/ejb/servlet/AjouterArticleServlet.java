@@ -5,6 +5,7 @@
  */
 package ejb.servlet;
 
+import ejb.bean.ArticleFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ejb.entity.Article;
 import ejb.service.ArticleService;
+import javax.ejb.EJB;
 
 /**
  *
@@ -21,6 +23,9 @@ import ejb.service.ArticleService;
  */
 @WebServlet(name = "AjouterArticleServlet", urlPatterns = {"/ajouterArticle"})
 public class AjouterArticleServlet extends HttpServlet {
+    
+    @EJB
+    private ArticleFacadeLocal afl;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,8 +41,10 @@ public class AjouterArticleServlet extends HttpServlet {
         a.setPrix(Long.parseLong(req.getParameter("prix")));
         a.setStock(Integer.parseInt(req.getParameter("stock")));
         
-        ArticleService aserv = new ArticleService();
-        aserv.enregistrerNewArticle(a);
+        afl.create(a);
+        
+//        ArticleService aserv = new ArticleService();
+//        aserv.enregistrerNewArticle(a);
         
         resp.sendRedirect("listeArticle");
     }

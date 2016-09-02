@@ -8,11 +8,13 @@ package ejb.service;
 import java.util.List;
 import ejb.dao.UtilisateurDAO;
 import ejb.entity.Utilisateur;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author admin
  */
+
 public class UtilisateurService {
 
     public Utilisateur connexion(String login, String mdp) {
